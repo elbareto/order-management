@@ -1,0 +1,30 @@
+<div class="container">
+
+  <div class="logo">
+    <img src="/assets/img/LOGHI ElBareto-04.png" alt="" srcset="">
+  </div>
+
+  <div class="content" [ngClass]="{'completed' : ordini.length == 0}">
+
+    <h1 class="completed" *ngIf="ordini.length == 0">
+      Nessun ordine da ritirare
+    </h1>
+
+    <h1 *ngIf="ordini.length > 0">
+      Stiamo servendo il numero
+    </h1>
+
+    <div class="numeri" *ngIf="ordini.length > 0" [ngClass]="{
+      'medium' : ordini.length > 8 && ordini.length <= 15,
+      'large' : ordini.length > 15
+    }">
+
+      <mat-card class="numero-card" *ngFor="let ordine of ordini">
+        <mat-card-content>{{ordine.numeroOrdine}}</mat-card-content>
+      </mat-card>
+
+    </div>
+
+  </div>
+
+</div>

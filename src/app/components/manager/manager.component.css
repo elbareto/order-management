@@ -1,0 +1,167 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: #f3f3f3;
+}
+
+.content {
+  width: 65%;
+  overflow: hidden;
+}
+
+.numeri {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 20%);
+  gap: 30px;
+  justify-content: space-evenly;
+  padding: 50px 100px;
+}
+.numeri.largeOrder {
+  grid-template-columns: repeat(auto-fit, 20%) !important;
+  font-size: 72px !important;
+}
+
+.numero-card {
+  width: 100%;
+  /* min-width: 100px; */
+  /* height: 200px; */
+  padding: 10px 0;
+  font-size: 42px;
+  text-align: center;
+  color: #593305;
+  font-weight: 500;
+  border-left: 17px solid #593305;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 0.7rem;
+}
+
+.overlay {
+  display: none;
+  width: 100%;
+  height: 100%;
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  /* line-height: 170%; */
+}
+
+.numero-card:hover {
+  background-color: red;
+  color: white;
+  content: '';
+  cursor: pointer;
+  border-left: 10px solid red;
+}
+.numero-card:hover .numero-ordine {
+  display: none;
+}
+.numero-card:hover .overlay {
+  display: block;
+  color: white !important;
+}
+
+
+.inserimento {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: flex-start; */
+  border-left: 2px solid #593305;
+  padding-top: 50px;
+}
+
+.inputArea {
+  width: 100%;
+  max-width: 400px;
+  /* padding: 0; */
+  /* padding-bottom: 100px !important; */
+  margin: 50px 0;
+}
+.inputArea input {
+  font-size: 22px;
+}
+.inputArea button {
+  width: 100%;
+  height: 100%;
+  background-color: darkgreen;
+  color: white;
+  font-size: 24px;
+}
+.inputArea .mat-mdc-form-field {
+  width: 100%;
+  height: 100%;
+}
+::ng-deep .inputArea .mat-mdc-form-field-subscript-wrapper {
+  display: none !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.numpad {
+  width: 100%;
+  max-width: 400px;
+  padding-bottom: 300px !important;
+}
+.numpad button {
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+}
+.numpad .confirm {
+  background-color: green;
+  color: white;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .inserimento {
+    order: 1;
+    width: 100%;
+    padding: 100px 20px;
+    border: none;
+  }
+
+
+  .content {
+    order: 2;
+    width: 100%;
+  }
+
+  .numeri {
+    grid-template-columns: repeat(auto-fit, 31%);
+    gap: 30px;
+    justify-content: center;
+    padding: 50px 50px;
+  }
+
+  .numero-card {
+    min-width: 50px;
+    font-size: 48px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .numeri {
+    order: 2;
+    grid-template-columns: repeat(auto-fit, 45%);
+    padding: 20px 20px;
+    font-size: 24px;
+  }
+
+  .numero-card {
+    min-width: 50px;
+    font-size: 30px;
+  }
+}
