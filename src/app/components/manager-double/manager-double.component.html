@@ -1,0 +1,68 @@
+<div class="container">
+
+    <div class="content">
+      <div id="queue" class="numeri" [ngClass]="getSectionSizeClass()">
+  
+        <div class="numeri-title">In Preparazione</div>
+
+        <mat-card class="numero-card" *ngFor="let ordine of ordiniInPreparazione">
+          <mat-card-content>
+            <span class="numero-ordine">{{ordine.numeroOrdine}}</span>
+            <span class="overlay" (click)="segnaOrdinePronto(ordine)">X</span>
+          </mat-card-content>
+        </mat-card>
+  
+      </div>
+
+      <div id="ready" class="numeri" [ngClass]="getSectionSizeClass()">
+  
+        <div class="numeri-title">Da Ritirare</div>
+
+        <mat-card class="numero-card" *ngFor="let ordine of ordiniDaRitirare">
+          <mat-card-content>
+            <span class="numero-ordine">{{ordine.numeroOrdine}}</span>
+            <span class="overlay" (click)="segnaOrdineRitirato(ordine)">X</span>
+          </mat-card-content>
+        </mat-card>
+  
+      </div>
+
+    </div>
+  
+    <div class="inserimento">
+  
+      <h2>Inserisci nuovo ordine</h2>
+  
+      <mat-grid-list cols="3" rowHeight="2:1" class="inputArea">
+        <mat-grid-tile [colspan]="2">
+          <mat-form-field><input matInput placeholder="Numero ordine" value="" type="number" [(ngModel)]="ordineDaInserire" (keyup.enter)="inserisciOrdine()" autofocus></mat-form-field>
+        </mat-grid-tile>
+  
+        <mat-grid-tile>
+          <button mat-stroked-button class="confirm" (click)="inserisciOrdine()">
+            <mat-icon>done</mat-icon>
+          </button>
+        </mat-grid-tile>
+      </mat-grid-list>
+  
+      <mat-grid-list cols="3" rowHeight="2:1" class="numpad">
+        <mat-grid-tile><button mat-stroked-button (click)="appendDigit('1')">1</button></mat-grid-tile>
+        <mat-grid-tile><button mat-stroked-button (click)="appendDigit('2')">2</button></mat-grid-tile>
+        <mat-grid-tile><button mat-stroked-button (click)="appendDigit('3')">3</button></mat-grid-tile>
+        <mat-grid-tile><button mat-stroked-button (click)="appendDigit('4')">4</button></mat-grid-tile>
+        <mat-grid-tile><button mat-stroked-button (click)="appendDigit('5')">5</button></mat-grid-tile>
+        <mat-grid-tile><button mat-stroked-button (click)="appendDigit('6')">6</button></mat-grid-tile>
+        <mat-grid-tile><button mat-stroked-button (click)="appendDigit('7')">7</button></mat-grid-tile>
+        <mat-grid-tile><button mat-stroked-button (click)="appendDigit('8')">8</button></mat-grid-tile>
+        <mat-grid-tile><button mat-stroked-button (click)="appendDigit('9')">9</button></mat-grid-tile>
+  
+        <mat-grid-tile><button mat-stroked-button (click)="clearScore()"><mat-icon>clear</mat-icon></button></mat-grid-tile>
+        <mat-grid-tile><button mat-stroked-button (click)="appendDigit('0')">0</button></mat-grid-tile>
+        <mat-grid-tile><button mat-stroked-button (click)="removeLastDigit()"><mat-icon>backspace</mat-icon></button></mat-grid-tile>
+      </mat-grid-list>
+  
+      <h3 routerLink="/double/display" style="text-align: center; cursor: pointer;">Apri display</h3>
+    </div>
+  
+  </div>
+  

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { Ordine } from 'src/app/shared/Ordine';
+import { StatoOrdine } from 'src/app/shared/StatoOrdine';
 
 @Component({
   selector: 'app-manager',
-  templateUrl: './manager.component.html',
-  styleUrls: ['./manager.component.css']
+  templateUrl: './manager-single.component.html',
+  styleUrls: ['./manager-single.component.css']
 })
-export class ManagerComponent implements OnInit {
+export class ManagerSingleComponent implements OnInit {
 
   ordini: Ordine[];
   ordineDaInserire: any = '';
@@ -15,7 +16,7 @@ export class ManagerComponent implements OnInit {
   constructor(private firebase: FirebaseService) {}
 
   ngOnInit() {
-    let ordiniFireList = this.firebase.getOrdini();
+    let ordiniFireList = this.firebase.getOrdiniSingle();
     ordiniFireList.snapshotChanges().subscribe(data => {
       this.ordini = [];
       data.forEach(item => {
@@ -34,20 +35,20 @@ export class ManagerComponent implements OnInit {
     // Se l'ordine è già presente, lo elimino
     for (let ordine of this.ordini) {
       if (this.ordineDaInserire == ordine.numeroOrdine) {
-        this.firebase.deleteOrdine(ordine.key);
+        this.firebase.deleteOrdineSingle(ordine.key);
         this.ordineDaInserire = '';
         return; // Termino l'operazione
       }
     }
 
-    let ordine = new Ordine(this.ordineDaInserire);
-    this.firebase.saveOrdine(ordine);
+    let ordine = new Ordine(this.ordineDaInserire, StatoOrdine.NA);
+    this.firebase.saveOrdineSingle(ordine);
 
     this.ordineDaInserire = '';
   }
 
   cancellaOrdine(ordine: Ordine) {
-      this.firebase.deleteOrdine(ordine.key);
+      this.firebase.deleteOrdineSingle(ordine.key);
   }
 
   appendDigit(digit: string) {

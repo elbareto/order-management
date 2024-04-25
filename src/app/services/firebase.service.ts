@@ -7,22 +7,40 @@ import { Ordine } from '../shared/Ordine';
 })
 export class FirebaseService {
 
-  ordiniFireList: AngularFireList<Ordine>;
+  ordiniSingle: AngularFireList<Ordine>;
+  ordiniDouble: AngularFireList<Ordine>;
+  
   ordini: Set<Number>;
 
   constructor(private db: AngularFireDatabase) {
-    this.ordiniFireList = this.db.list('/ordini');
+    this.ordiniSingle = this.db.list('/ordini-single');
+    this.ordiniDouble = this.db.list('/ordini-double')
   }
 
-  getOrdini() {
-    return this.ordiniFireList;
+  getOrdiniSingle() {
+    return this.ordiniSingle;
   }
 
-  saveOrdine(ordine: Ordine) {
-      this.ordiniFireList.push(ordine);
+  saveOrdineSingle(ordine: Ordine) {
+      this.ordiniSingle.push(ordine);
   }
 
-  deleteOrdine(key: string) {
-    this.ordiniFireList.remove(key);
+  deleteOrdineSingle(key: string) {
+    this.ordiniSingle.remove(key);
+  }
+
+
+  getOrdiniDouble() {
+    return this.ordiniDouble;
+  }
+
+  insertOrdineDouble(ordine: Ordine) {
+    this.ordiniDouble.push(ordine);
+  }
+  updateOrdineDouble(ordine: Ordine) {
+    this.ordiniDouble.update(ordine.key, ordine);
+  }
+  deleteOrdineDouble(key: string) {
+    this.ordiniDouble.remove(key);
   }
 }

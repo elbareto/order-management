@@ -1,0 +1,126 @@
+:host {
+  --bareto-brown : #593305;
+  --queue-accent-color: #F9A825; 
+  --ready-accent-color: #388E3C;
+}
+
+
+.logo {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 15px;
+  background-color: white;
+  border: 8px solid var(--bareto-brown);
+  border-top: none;
+}
+.logo img {
+  width: 100%;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+.section {
+    width: 50%;
+    height: 100%;
+}
+.section-header {
+    width: 100%;
+    height: 200px;
+    background-color: var(--bareto-brown);
+    color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-header h1 {
+    font-size: 72px;
+    /* text-transform: uppercase; */
+    margin: 0;
+}
+
+#queue {
+    border-right: 2px solid black;
+}
+#queue .section-header {
+  /* border-right: 4px solid #593305; */
+  background-color: var(--queue-accent-color);
+}
+.section.no-orders {
+  border: none !important;
+}
+
+#ready {
+    border-left: 2px solid black;
+}
+#ready .section-header {
+  /* border-right: 4px solid #593305; */
+  background-color: var(--ready-accent-color);
+}
+
+
+
+.numeri {
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 100%);
+    gap: 30px;
+    justify-content: space-evenly;
+    padding: 50px;
+    font-size: 150px;
+    overflow: hidden;
+  }
+  .numeri.medium {
+    grid-template-columns: repeat(auto-fit, 47%) !important;
+    font-size: 100px !important;
+  }
+  .numeri.large {
+    grid-template-columns: repeat(auto-fit, 20%) !important;
+    font-size: 60px !important;
+  }
+  
+  .numero-card {
+    width: 100%;
+    min-width: 200px;
+    /* height: 200px; */
+    padding: 10px 20px;
+    text-align: center;
+    color: var(--bareto-brown);
+    font-weight: 500;
+    border-left: 17px solid var(--bareto-brown);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 0.7rem;
+  }
+
+  #queue .numero-card {
+    border-left: 17px solid var(--queue-accent-color);
+    color: var(--queue-accent-color);
+  }
+  #ready .numero-card {
+    border-left: 17px solid var(--ready-accent-color);
+    color: var(--ready-accent-color);
+  }
+
+
+  .screensaver {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--bareto-brown);
+  }
+  .screensaver img {
+    width: 50%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DisplayComponent } from './components/display/display.component';
+import { DisplaySingleComponent } from './components/display-single/display-single.component';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -16,13 +16,19 @@ import {MatButtonModule} from '@angular/material/button';
 import { environment } from 'src/environments/enrironments'
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { ManagerComponent } from './components/manager/manager.component';
+import { ManagerSingleComponent } from './components/manager-single/manager-single.component';
+import { DisplayDoubleComponent } from './components/display-double/display-double.component';
+import { ManagerDoubleComponent } from './components/manager-double/manager-double.component';
+import { ModeSelectorComponent } from './components/mode-selector/mode-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DisplayComponent,
-    ManagerComponent
+    DisplaySingleComponent,
+    ManagerSingleComponent,
+    DisplayDoubleComponent,
+    ManagerDoubleComponent,
+    ModeSelectorComponent
   ],
   imports: [
     BrowserModule,

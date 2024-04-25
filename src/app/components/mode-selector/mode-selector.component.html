@@ -1,0 +1,11 @@
+<div class="container" *ngIf="mode == null">
+    <div class="question">Scegli una modalità</div>
+    <div class="choice" (click)="setMode('single')">Singola</div>
+    <div class="choice" (click)="setMode('double')">Doppia</div>
+</div>
+
+<div class="container" *ngIf="mode != null && role == null">
+    <div class="question">Scegli un ruolo</div>
+    <div class="choice" (click)="setRole('manager')">Manager</div>
+    <div class="choice" (click)="setRole('display')">Display</div>
+</div>

@@ -4,17 +4,17 @@ import { Ordine } from 'src/app/shared/Ordine';
 
 @Component({
   selector: 'app-display',
-  templateUrl: './display.component.html',
-  styleUrls: ['./display.component.css']
+  templateUrl: './display-single.component.html',
+  styleUrls: ['./display-single.component.css']
 })
-export class DisplayComponent implements OnInit {
+export class DisplaySingleComponent implements OnInit {
 
   ordini: Ordine[];
 
   constructor(private firebase: FirebaseService) { }
 
   ngOnInit() {
-    let ordiniFireList = this.firebase.getOrdini();
+    let ordiniFireList = this.firebase.getOrdiniSingle();
     ordiniFireList.snapshotChanges().subscribe(data => {
       this.ordini = [];
       data.forEach(item => {
