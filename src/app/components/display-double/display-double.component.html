@@ -2,8 +2,8 @@
   <img src="/assets/img/LOGHI ElBareto-03.png" alt="" srcset="">
 </div> -->
 
-<div class="container"  *ngIf="areThereOrders()">
-    <div id="queue" class="section" [ngClass]="{'no-orders': !areThereOrders()}">
+<div class="container">
+    <div id="queue" class="section">
         <div class="section-header"><h1>In Preparazione</h1></div>
 
         <div class="numeri" *ngIf="ordiniInPreparazione.length > 0" [ngClass]="getSectionSizeClass()">
@@ -16,7 +16,7 @@
 
     </div>
 
-    <div id="ready" class="section" [ngClass]="{'no-orders': !areThereOrders()}">
+    <div id="ready" class="section">
         <div class="section-header"><h1>Da Ritirare</h1></div>
 
         <div class="numeri" *ngIf="ordiniDaRitirare.length > 0" [ngClass]="getSectionSizeClass()">
@@ -30,6 +30,6 @@
 
 </div>
 
-<div class="screensaver" *ngIf="!areThereOrders()">
+<!-- <div class="screensaver" *ngIf="!areThereOrders()">
   <img src="/assets/img/LOGHI ElBareto-04.png" alt="" srcset="">
-</div>
+</div> -->
